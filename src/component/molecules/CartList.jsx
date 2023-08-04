@@ -3,7 +3,6 @@ import { useMutation } from "react-query";
 import { useNavigation } from "react-router-dom";
 import CartItem from "../atoms/CartItem";
 import Card from "../atoms/Card";
-import Button from "../atoms/Button";
 import Box from "../atoms/Box";
 import { comma } from "../../utils/convert";
 import {updateCart} from "../../services/addCart";
@@ -15,6 +14,8 @@ const route=useNavigation();
 const [cartItems, setCartItems]=useState([]);
 const [totalPrice, setTotalPrice]=useState(0);
 const [updatePayload, setUpdatePayload]=useState([]);//렌더링에 관여x
+
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
 
 //const updatePayload=useRef([]);
 const initPayload=useRef([]);//렌더링에 관여하지 않는다.
@@ -119,7 +120,7 @@ return(
                     //장바구니 정보를 수정하는 api호출(개수 변경이 있다면)
                     mutate(updatePayload,{
                         onSuccess:(data)=>{
-                            route.push("/order")
+                            route.push(staticServerUrl + "/order")
                         },
                         onError:(error)=>{
             

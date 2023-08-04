@@ -11,7 +11,7 @@ import Card from "../atoms/Card";
         useEffect(() => {
           const fetchData = async () => {
             try {
-              const response = await axios.get('http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com/products');
+              const response = await axios.get('https://user-app.krampoline.com/kd4fb93df2a38a/api/products');
               const jsonData = await response.data.response;
       
               setData(jsonData);

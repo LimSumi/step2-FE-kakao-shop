@@ -1,6 +1,5 @@
 import { useState } from "react";
 import OptionList from "../atoms/OptionList";
-import ProductSlice from "../../store/slices/ProductSlice";
 import { useMutation } from "react-query";
 import Counter from "../atoms/Counter";
 import { comma } from "../../utils/convert";
@@ -10,7 +9,7 @@ import Button from "../atoms/Button";
 
 const OptionColumn = ({ product }) => {
   const [selectedOptions, setselectedOptions]=useState([ ]);
-  const {productName, price, image} = product;
+  const {productName, price} = product;
   const handleOnClickOption=(option)=>{
 
     // const sampleArray= [1,2,3];

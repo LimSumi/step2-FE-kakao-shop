@@ -7,8 +7,10 @@ import GNB from "../component/atoms/GNB";
 import { useState } from "react";
 import { useEffect } from "react";
 
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
+
 const CartPage=()=>{
-  const { data, isLoading } = useQuery("cart", getCart);
+  const { data, isLoading } = useQuery(staticServerUrl + "/api/cart", getCart);
     // const [carts, setCarts] = useState([]);
 
 

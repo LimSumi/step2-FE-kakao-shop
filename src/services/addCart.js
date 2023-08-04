@@ -1,5 +1,6 @@
 import {instance} from "./index"
 
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
 /**
  * 장바구니 담기
  * @param {object} payload

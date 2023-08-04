@@ -6,6 +6,8 @@ import Loader from "../atoms/Loader";
 import { fetchProducts } from "../../services/product";
 import _ from "lodash";
 
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
+
 const MainProductTemplate = () => {
   const [page, setPage] = useState(0);
   const isFirstLoad = useRef(true);
@@ -13,7 +15,7 @@ const MainProductTemplate = () => {
   const [products, setProducts] = useState([]);
   const [isEnd, setIsEnd] = useState(false);
 
-  const { data, error, isLoading } = useQuery(`/products?page=${page}`, () =>
+  const { data, error, isLoading } = useQuery(staticServerUrl + `/api/products?page=${page}`, () =>
     fetchProducts(page)
   );
 

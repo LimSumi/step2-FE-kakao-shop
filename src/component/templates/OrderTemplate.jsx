@@ -13,6 +13,8 @@ const OrderTemplate=({data})=>{
     const [agreePolicy, setAgreePolicy] = useState(false);
     console.log(data);
 
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
+
 
 const allAgreeRef = useRef(null);
 const agreePaymentRef = useRef(null);
@@ -59,7 +61,7 @@ const agreePolicyRef = useRef(null);
                         <div className="flex items-center gap-3 py-2" key={option.id}>
                           <img
                             className="w-[80px] h-[80px] border rounded-lg"
-                            src={`${process.env.REACT_APP_API_URL}/images/${item.id}.jpg`}
+                            src={staticServerUrl +`/api/images/${item.id}.jpg`}
                             alt=""
                           />
                           <div className="product-info">
@@ -113,7 +115,7 @@ const agreePolicyRef = useRef(null);
                       </button>
                       <button
                         className="w-[100px] mx-2 px-3 py-2 rounded bg-black"
-                        onClick={() => route("/")}
+                        onClick={() => route(staticServerUrl + "/")}
                       >
                         <span className="text-sm text-white">쇼핑하기 홈</span>
                       </button>
@@ -139,7 +141,7 @@ const agreePolicyRef = useRef(null);
                         <span>010-0000-0000</span>
                       </div>
                       <div className="text-[14px]">
-                        <span>서울특별시 도곡동 000-00</span>
+                        <span>광주광역시</span>
                       </div>
                       <textarea
                         className="border rounded h-16 p-3"
@@ -238,7 +240,7 @@ const agreePolicyRef = useRef(null);
                             "주문에 실패했습니다. 재로그인 후 다시 시도해 주십시오."
                           );
                           logOut();
-                          navigate("/login");
+                          navigate(staticServerUrl + "/login");
                           // 사용자 정보가 유실(header의 autorization)시
                           // /login 페이지로 이동
                           // 엉뚱한 상품 데이터가 들어왔을 경우 404 페이지
@@ -246,7 +248,7 @@ const agreePolicyRef = useRef(null);
                         onSuccess: (res) => {
                           const id = res.data.response.id;
                           alert("주문이 완료되었습니다.");
-                          navigate(`/order/complete/${id}`);
+                          navigate(staticServerUrl + `/order/complete/${id}`);
                         },
                       });
                     }}

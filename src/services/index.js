@@ -2,7 +2,7 @@ import axios from 'axios'
 import { getCookie } from './user';
 
 export const instance = axios.create({
-    baseURL: "http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com/",
+    baseURL: "https://user-app.krampoline.com/kd4fb93df2a38a/api",
     timeout: 1000*20,
     headers: {
         "Content-Type":"application/json"
@@ -25,9 +25,9 @@ instance.interceptors.response.use(
         return Promise.reject(error)  
     }
 )
-export const duplicate = (data) => {
-    const email = data;
-    return instance.post("/check", {
-      email,
-    });
-  };
+// export const duplicate = (data) => {
+//     const email = data;
+//     return instance.post("/check", {
+//       email,
+//     });
+//   };

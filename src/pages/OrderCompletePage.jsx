@@ -3,11 +3,12 @@ import Loader from "../component/atoms/Loader";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getOrderFromId } from "../services/order";
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
 
 const OrderCompletePage = ()=> {
     const {id} = useParams();
 
-    const { data, error } = useQuery(`/orders/${id}`, ()=> getOrderFromId(id));
+    const { data, error } = useQuery(staticServerUrl + `/api/orders/${id}`, ()=> getOrderFromId(id));
 
 
 // 완료된 결제 정보를 불러오기

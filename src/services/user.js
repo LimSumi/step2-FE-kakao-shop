@@ -5,9 +5,12 @@ import store from "../store";
 
 const cookie= new Cookies();
 
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
+
+
 export const register = (data) => {
     const { email, password, username } = data;
-    return instance.post("/join", {
+    return instance.post( "/join", {
       email,
       password,
       username,
@@ -16,7 +19,7 @@ export const register = (data) => {
 
 export const login = (data) => {
     const { email, password } = data;
-    return instance.post("/login", {
+    return instance.post( "/login", {
       email,
       password,
     });
@@ -30,8 +33,8 @@ const getExpirationTime = () => {
 
 export const setCookie=({email, token})=>{
   const expTime = getExpirationTime();
-  cookie.set("email", email, { path: '/', expires: expTime})
-  cookie.set("token", token, { path: '/', expires: expTime})
+  cookie.set("email", email, { path:  `${staticServerUrl}/`, expires: expTime})
+  cookie.set("token", token, { path: `${staticServerUrl}/` , expires: expTime})
 }
 
 export const getCookie=()=>{

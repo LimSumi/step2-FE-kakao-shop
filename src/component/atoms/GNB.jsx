@@ -3,14 +3,13 @@ import logokakao from "../../img/logoKakao.png"
 import cart from '../../img/cart.png';
 import { useSelector, useDispatch } from "react-redux";
 // import { clearUser } from "../../store/slices/userSlice";
-import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
+
 const GNB=()=>{
     //const [isLogin, setIsLogin]=useState(false);
-    const email = useSelector((state) => state.user.email);
-    const dispatch = useDispatch();
 //state안에 isLogin을 만들어 처리
 const [isLogin, setIsLogin] = useState(false);
 
@@ -39,16 +38,16 @@ const [isLogin, setIsLogin] = useState(false);
         <header className="header flex justify-center items-center">
             <div className="contents flex justify-center items-center">
             <h1 className="navigation flex justify-center items-center">
-                <Link to href="/">
-                   <img src={logokakao} alt="카카오 쇼핑 로고" height={30}/>
+                <Link to href={staticServerUrl + "/"}>
+                   <img src={staticServerUrl + "/img/logokakao"} alt="카카오 쇼핑 로고" height={30}/>
                 </Link>
             </h1>
                 <nav>
                     <div className="navigation row">
                         
                             {/* 장바구니 버튼 */}
-                            <Link to="/cart">
-                                <img src={cart} alt="장바구니 버튼" height={30}/>
+                            <Link to={staticServerUrl + "/cart"}>
+                                <img src={staticServerUrl + "/img/cart"} alt="장바구니 버튼" height={30}/>
                                 {/* <span style={{}}>장바구니 버튼</span>
                                 <ReactIcon.Card/> */}
                             </Link>
@@ -56,7 +55,7 @@ const [isLogin, setIsLogin] = useState(false);
                         <span>
                             {!isLogin ? (
                                 <Link
-                                to="/login"
+                                to={staticServerUrl + "/login"}
                                 onClick={handleLogout}
                                 style={{textDecortation:"none", color:"black"}}
                                 >
@@ -65,7 +64,8 @@ const [isLogin, setIsLogin] = useState(false);
                                 </Link>
                             ):(
                                 <Link
-                                to="/login"
+                                to={staticServerUrl + "/login"}
+
                                 style={{textDecoration:"none", color:"black"}}
                                 >
                                 </Link>

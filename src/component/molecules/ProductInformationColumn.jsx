@@ -5,7 +5,7 @@ const ProductInformationColumn = ({product}) => {
   const {productName, price, image} = product;
   return (
        <div className="flex py-8 pr-8 w-[400px]">
-                <Photo src={'http://kakao-app-env.eba-kfsgeb74.ap-northeast-2.elasticbeanstalk.com'+ product.image} alt={product.productName} />
+                <Photo src={'https://user-app.krampoline.com/kd4fb93df2a38a'+ product.image} alt={product.productName} />
             
     </div>
   );

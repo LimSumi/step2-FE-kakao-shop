@@ -1,5 +1,7 @@
 import {instance} from "./index";
 
+const staticServerUrl = "https://user-app.krampoline.com/kd4fb93df2a38a";
+
 export const fetchProducts = async (page = 0)=>{
     return await instance.get("/products?page="+page)
     .then(response =>  {
